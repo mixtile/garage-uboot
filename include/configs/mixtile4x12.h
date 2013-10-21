@@ -322,10 +322,16 @@
 #ifdef CONFIG_EVT0_STABLE
 #define CONFIG_NR_DRAM_BANKS	2
 #else
-//#define CONFIG_NR_DRAM_BANKS	8
-#define CONFIG_NR_DRAM_BANKS	4
+#ifdef CONFIG_DDR3_2G
+  #define CONFIG_NR_DRAM_BANKS	  8
+  #define SDRAM_BANK_SIZE         0x10000000    /* 256 MB */
+  #define MEMCONFIG0              0x40801333
+#else
+  #define CONFIG_NR_DRAM_BANKS	  4
+  #define SDRAM_BANK_SIZE         0x10000000    /* 256 MB */
+  #define MEMCONFIG0              0x40C01323
+#endif /* CONFIG_DDR3_2G */
 #endif
-#define SDRAM_BANK_SIZE         0x10000000    /* 256 MB */
 #define PHYS_SDRAM_1            CONFIG_SYS_SDRAM_BASE /* SDRAM Bank #1 */
 #define PHYS_SDRAM_1_SIZE       SDRAM_BANK_SIZE
 #define PHYS_SDRAM_2            (CONFIG_SYS_SDRAM_BASE + SDRAM_BANK_SIZE) /* SDRAM Bank #2 */

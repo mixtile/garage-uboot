@@ -335,7 +335,7 @@ mem_ctrl_asm_init_ddr3:
 	ldr	r1, =0x00302600				
 	str	r1, [r0, #DMC_MEMCONTROL]
 
-	ldr	r1, =0x40C01323	
+	ldr	r1, =MEMCONFIG0	
 	str	r1, [r0, #DMC_MEMCONFIG0]
 
 	ldr	r1, =(0x80000000 | CONFIG_IV_SIZE)
@@ -450,7 +450,7 @@ mem_ctrl_asm_init_ddr3:
 	ldr	r1, =0x00302600				
 	str	r1, [r0, #DMC_MEMCONTROL]
 
-	ldr	r1, =0x40C01323	
+	ldr	r1, =MEMCONFIG0	
 	str	r1, [r0, #DMC_MEMCONFIG0]
 
 	ldr	r1, =(0x80000000 | CONFIG_IV_SIZE)
